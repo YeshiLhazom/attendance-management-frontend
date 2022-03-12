@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router-dom'
  import {signUp} from '../request'
  import { useDispatch } from 'react-redux';
 import {setUser} from '../../slices/dataSlice';
+import logo from '../../../assets/logo.png'
+import { Row } from 'react-bootstrap';
 
 function Signup() {
     const navigate = useNavigate()
@@ -39,58 +41,59 @@ function Signup() {
       
       }
   return (
+
+    
     <div className='login'>
+     
+      
     <div>
-     <div className='login_container'>
-         <h2>sign-up</h2>
+    
+     <div className='login_container'>   
+  
+        
+         <a href=''><img src={logo} alt="logo" width="50px" /></a><br/>
+         
          <form>
-             <h5>name</h5>
-             <input type = 'text' name='name' value ={inputs.name} onChange={handleChange}
-            
-             />
-              <h5>email</h5>
-             <input type = 'email' name='email' value ={inputs.email} onChange={handleChange}
-            
-             />
-              <h5>id</h5>
-             <input type = 'text' name='id' value ={inputs.id} onChange={handleChange}
-            
-             />
-             Gender
+             <label className='inputhead'> Name: 
+              <input type = 'text' name='name' value ={inputs.name} onChange={handleChange}/>
+             </label><br/>
+             <label className='inputhead'>Email: 
+              <input type = 'email' name='email' value ={inputs.email} onChange={handleChange} />
+             </label><br/>
+             <label className='inputhead'>ID:
+             <input type = 'text' name='id' value ={inputs.id} onChange={handleChange} />
+             </label><br/>
+             <label className='inputhead'>Gender
               <input
-              className='inline'
-              type="radio"
-              value="Male"
-              name='gender'
-              checked={inputs.gender=== "Male"}
-              onChange={handleChange}
-            />
-          <p className='inline'>male</p>
-          <input
-          className='inline-block'
-              type="radio"
-              value="Female"
-              name='gender'
-              checked={inputs.gender=== "Female"}
-              onChange={handleChange}
-            />
-          <p className='inline'>female</p>
+                className='inline'
+                type="radio"
+                value="Male"
+                name='gender'
+                checked={inputs.gender=== "Male"}
+                onChange={handleChange}
+              /> <p className='inline'>male</p>
+              <input
+              className='inline-block'
+                  type="radio"
+                  value="Female"
+                  name='gender'
+                  checked={inputs.gender=== "Female"}
+                  onChange={handleChange}
+                />  <p className='inline'>female</p>
+          </label><br/>
         
 
           <select name='userType' value={inputs.userType} onChange={handleChange}>            <option value="select type ">select user type</option>
             <option value="student">student</option>
             <option value="tutor">tutor</option>
-          </select>
+          </select><br/>
           
-              <h5>password</h5>
-             <input type = 'password' name='password' value ={inputs.password1} onChange={handleChange}
-            
-             />
-               <h5>confirm</h5>
-             <input type = 'password' className={inputs.password===inputs.password2?'password-right':'password-wrong'} name='password2' value ={inputs.password2} onChange={handleChange}
-            
-             />
-             <br/>
+          <label className='inputhead'>Password:
+             <input type = 'password' name='password' value ={inputs.password1} onChange={handleChange}/>
+          </label><br/>
+          <label className='inputhead'> Confirm:
+             <input type = 'password' className={inputs.password===inputs.password2?'password-right':'password-wrong'} name='password2' value ={inputs.password2} onChange={handleChange}/>
+          </label><br/>
              <button className="login_btn" type ='submit' onClick={handleSubmit}
             >
                   create account
@@ -107,9 +110,13 @@ function Signup() {
          </button>
 
          </form>
+         
      </div>
+     
     </div>
+     
   </div>
+  
   )
 }
 
